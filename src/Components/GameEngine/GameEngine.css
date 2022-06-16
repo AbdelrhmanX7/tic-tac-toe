@@ -1,209 +1,262 @@
 .container {
-    width: 100vw; height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .win_background {
-    display: flex;
-    justify-content: center; align-items: center;
-    position: absolute;
-    width: 100vw;
-    height: 100vh;
-    z-index: 3;
-    background-color: rgba(17, 17, 17, 0.194);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  z-index: 3;
+  background-color: rgba(17, 17, 17, 0.194);
 }
 .win {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    background-color: #1f3641;
-    width: 100%;
-    height: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #1f3641;
+  width: 100%;
+  height: 250px;
 }
 .win p {
-    color: #a8bfc9;
-    font-weight: 700;
+  color: #a8bfc9;
+  font-weight: 700;
 }
 .the_winner {
-    display: flex;
-    justify-content: center; align-items: center;
-
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .the_winner img {
-    width: 60px; height: 60px;
-    margin-right: 15px;
+  width: 60px;
+  height: 60px;
+  margin-right: 15px;
 }
 .the_winner h1 {
-    font-size: 36px;
-    word-spacing: 7px;
-    letter-spacing: 1.5px;
+  font-size: 36px;
+  word-spacing: 7px;
+  letter-spacing: 1.5px;
 }
 .win_btns {
-    display: flex;
-    justify-content: center; align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .win_btns button {
-    cursor: pointer;
-    text-align: center;
-    padding: 14px;
-    box-sizing: border-box;
-    outline: none;
-    border: none;
-    border-radius: 12px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: 0.5s;
-    font-weight: 700;
-    font-size: 18px;
-    color: #1f3641;
-    margin-right: 15px;
+  cursor: pointer;
+  text-align: center;
+  padding: 14px;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s;
+  font-weight: 700;
+  font-size: 18px;
+  color: #1f3641;
+  margin-right: 15px;
 }
 .quit_btn {
-    box-shadow: 0px 5px 0px 0px #6991a2;
-    background-color: #a8bfc9;
+  box-shadow: 0px 5px 0px 0px #6991a2;
+  background-color: #a8bfc9;
 }
 .quit_btn:hover {
-    background-color: #dbe8ed;
+  background-color: #dbe8ed;
 }
 .Next_Round_btn {
-    background-color: #f2b137;
-    box-shadow: 0px 5px 0px 0px #b68529;
+  background-color: #f2b137;
+  box-shadow: 0px 5px 0px 0px #b68529;
 }
 .Next_Round_btn:hover {
-    background-color: #ffc14e;
+  background-color: #ffc14e;
 }
 .GameUi {
-    width: 400px; height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly; align-items: center;
+  width: 400px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
 }
 header {
-    width: 100%;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    box-sizing: border-box;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  box-sizing: border-box;
 }
 header img {
-    width: 50px; height: 50px;
+  width: 50px;
+  height: 50px;
 }
 .Turn {
-    background-color: #1f3641;
-    border-radius: 12px;
-    width: 121px;
-    height: 60px;
-    font-weight: 800;
-    color: #a8bfc9;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0px 5px 0px 0px #0f191e;
-    margin-left: 9px;
+  background-color: #1f3641;
+  border-radius: 12px;
+  width: 121px;
+  height: 60px;
+  font-weight: 800;
+  color: #a8bfc9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 5px 0px 0px #0f191e;
+  margin-left: 9px;
 }
 .Turn svg {
-    width: 20px; height: 20px;
-    margin-right: 5px;
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
 }
 .restart {
-    cursor: pointer;
-    width: 60px;
-    height: 50px;
-    background-color: #a8bfc9;
-    outline: none;
-    border: none;
-    border-radius: 12px;
-    box-shadow: 0px 5px 0px 0px #6991a2;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: 0.5s;
+  cursor: pointer;
+  width: 60px;
+  height: 50px;
+  background-color: #a8bfc9;
+  outline: none;
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0px 5px 0px 0px #6991a2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s;
 }
 .restart img {
-    width: 25px; height: 25px;
+  width: 25px;
+  height: 25px;
 }
 .restart:hover {
-    background-color: #dbe8ed;
+  background-color: #dbe8ed;
 }
 main {
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-    height: 400px;
-    gap: 15px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  height: 400px;
+  gap: 15px;
 }
 .game_floor {
-    position: relative;
-    outline: none;
-    border: none;
-    height: 123px;
-    border-radius: 12px;
-    background-color: #1f3641;
-    box-shadow: 0px 7px 0px 0px #0f191e;
-    z-index: 2;
-    display: flex;
-    justify-content: center; align-items: center;
+  position: relative;
+  outline: none;
+  border: none;
+  height: 123px;
+  border-radius: 12px;
+  background-color: #1f3641;
+  box-shadow: 0px 7px 0px 0px #0f191e;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .game_floor_btn {
-    width: 100%;
-    outline: none;
-    border: none;
-    height: 123px;
-    border-radius: 12px;
-    background-color: #1f3641;
-    box-shadow: 0px 7px 0px 0px #0f191e;
-    z-index: 2;
-    opacity: 0;
+  width: 100%;
+  outline: none;
+  border: none;
+  height: 123px;
+  border-radius: 12px;
+  background-color: #1f3641;
+  box-shadow: 0px 7px 0px 0px #0f191e;
+  z-index: 2;
+  opacity: 0;
 }
 
 .game_floor:hover .player_outline {
-    display: inline-block;
-    z-index: 1;
+  display: inline-block;
+  z-index: 1;
 }
 .game_floor .player_outline {
-    display: none;
-    position: absolute;
-    width: 70%; height: 70%;
-    z-index: 1;
+  display: none;
+  position: absolute;
+  width: 70%;
+  height: 70%;
+  z-index: 1;
 }
 .player_turn {
-    position: absolute;
-    width: 70%; height: 70%;
-    z-index: 1;
+  position: absolute;
+  width: 70%;
+  height: 70%;
+  z-index: 1;
 }
 footer {
-    width: 400px;
-    display: flex;
-    justify-content: space-between; align-items: center;
+  width: 400px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 .points-continer {
-    width: 120px;
-    height: 100px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border-radius: 12px;
+  width: 120px;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 12px;
 }
 .points-continer h1 {
-    margin: 0px;
+  margin: 0px;
 }
 .x-wins {
-    background-color: #31c3bd;
+  background-color: #31c3bd;
 }
 .ties {
-    background-color: #a8bfc9;
+  background-color: #a8bfc9;
 }
 .o-wins {
-    background-color: #f2b137;
+  background-color: #f2b137;
 }
 .points {
-    display: flex;
-    justify-content: center; align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .points img {
-    width: 10px; height: 10px;
-    margin-right: 5px;
+  width: 10px;
+  height: 10px;
+  margin-right: 5px;
+}
+@media screen and (max-width: 500px) {
+.win {
+    justify-content: space-evenly;
+    height: 215px;
+}
+  .win p {
+    margin: 0px;
+  }
+  .the_winner img{
+    width: 30px;
+    height: 30px;
+  }
+  .the_winner h1 {
+    font-size: 25px;
+  }
+  main {
+    width: 330px;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  }
+  .game_floor {
+    height: 100px;
+  }
+  footer {
+    width: 320px;
+  }
+  .points-continer {
+    width: 90px;
+    height: 90px;
+    justify-content: center;
+  }
+  .points {
+    height: 25px;
+  }
+  .ties h1 {
+    position: relative;
+    bottom: 14px;
+  }
 }

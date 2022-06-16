@@ -2,6 +2,9 @@ import "./App.css";
 import GameUi from "./Components/Ui/GameUi";
 import GEUI from "./Components/GameEngine/GameEngineUi/GEUI";
 import { useEffect, useState } from "react";
+import textfile from "./test.txt";
+import { type } from "@testing-library/user-event/dist/type";
+import Game from "./Components/GameEngine/GameScripts/Game";
 const DUMMY_DATA = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 //WIN_DATA i use it to collect all way to win in on array to be able to use it with loop
 const WIN_DATA = [
@@ -14,12 +17,23 @@ const WIN_DATA = [
   [1, 5, 9],
   [3, 5, 7],
 ];
+let X_arr = [];
+let O_arr = [];
+let make_des = false;
+let o_game = 0;
 function App() {
   // X for player one state
   const [X, setX] = useState(true);
 
   const [Game_Start, Set_Game_Start] = useState(false);
+  const [Game_Type, Set_Game_Type] = useState("");
   const [Game_End, Set_Game_End] = useState(false);
+
+  const Check_Arr = (X_Arr, O_Arr, md) => {
+    X_arr = X_Arr;
+    O_arr = O_Arr;
+    make_des = md;
+  };
 
   const [playerData_X, setPlayerData_X] = useState({
     player: "x",
@@ -51,14 +65,11 @@ function App() {
     }
   };
 
-
   //i used this loop to check all Data from Win_Data
   for (let i = 0; i < WIN_DATA.length; i++) {
-
     let win = 0;
 
     for (let x = 0; x < WIN_DATA[i].length; x++) {
-      
       if (X) {
         // O Check Data and if O win or not
         for (let y = 0; y < playerData_O.move.length; y++) {
@@ -91,6 +102,18 @@ function App() {
         }
         break;
       }
+
+      if (win === 2) {
+        for (const x in WIN_DATA[i]) {
+          if (
+            !X_arr.includes(WIN_DATA[i][x]) &&
+            !O_arr.includes(WIN_DATA[i][x])
+          ) {
+            o_game = WIN_DATA[i][x];
+            make_des = true;
+          }
+        }
+      }
     }
   }
 
@@ -109,7 +132,6 @@ function App() {
     }
   }, [playerData_X.move]);
 
-
   //i use useEffect to get Data from localStorage before a game start
   useEffect(() => {
     /* str is use to Transform Data from normal Data to a active Data
@@ -122,6 +144,26 @@ function App() {
     # there is error could happend when Data will be null so if this error happend with you just use try and catch and in catch save a default data
     (this error happend when you remove cookies or there is no Defualt Data)
     */
+   if(Game_Type === 'bot') {
+    const str = localStorage.getItem("bot_game_data");
+    const parse = JSON.parse(str);
+    try {
+      setPlayerData_X({
+        ...playerData_X,
+        win: parse.win,
+        lose: parse.lose,
+        tie: parse.tie,
+      });
+    } catch (error) {
+      //Handle Error you will find answer in the second (#)
+      setPlayerData_X({
+        ...playerData_X,
+        win: 0,
+        lose: 0,
+        tie: 0,
+      });
+    }
+   } else {
     const str = localStorage.getItem("game_data");
     const parse = JSON.parse(str);
     try {
@@ -140,31 +182,50 @@ function App() {
         tie: 0,
       });
     }
-  }, []);
+   }
+  }, [Game_Type]);
 
   useEffect(() => {
     /*
     if you use localstorage you should first Transform Data from object to
     normal text to be able to save in localStorage
     */
-    const jsonObj = JSON.stringify(playerData_X);
-    localStorage.setItem("game_data", jsonObj);
+    if (Game_Type === "bot") {
+      const jsonObj = JSON.stringify(playerData_X);
+      localStorage.setItem("bot_game_data", jsonObj);
+    } else {
+      const jsonObj = JSON.stringify(playerData_X);
+      localStorage.setItem("game_data", jsonObj);
+    }
   }, [playerData_X]);
 
-  const onGame_Start = (e) => {
+  const onGame_Start = (e, Game_Type) => {
     Set_Game_Start(e);
+    Set_Game_Type(Game_Type);
   };
-
   return (
     <div className="App">
       {Game_Start ? (
-        <GEUI
-          Data={DUMMY_DATA}
-          onGame_Start={onGame_Start}
-          playerData_X={playerData_X}
-          onGetPlayer={onGetPlayer}
-          game_end={Game_End}
-        />
+        Game_Type === "normal" ? (
+          <GEUI
+            Data={DUMMY_DATA}
+            onGame_Start={onGame_Start}
+            playerData_X={playerData_X}
+            onGetPlayer={onGetPlayer}
+            game_end={Game_End}
+          />
+        ) : (
+          <Game
+            Data={DUMMY_DATA}
+            onGame_Start={onGame_Start}
+            playerData_X={playerData_X}
+            onGetPlayer={onGetPlayer}
+            game_end={Game_End}
+            Check_Arr={Check_Arr}
+            make_des={make_des}
+            o_game={o_game}
+          />
+        )
       ) : (
         <GameUi onGame_Start={onGame_Start} />
       )}

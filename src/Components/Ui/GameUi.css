@@ -64,6 +64,9 @@
     transition: 0.5s;
 }
 .cpu {
+    outline: none;
+    border: none;
+    box-sizing: unset;
     margin: 30px 0px;
     background-color: #f2b137;
     box-shadow: 0px 8px 0px 0px #b77c0c;
@@ -79,4 +82,16 @@
 }
 .player:hover {
     background-color: #65e9e4;
+}
+@media screen and (max-width: 500px) {
+    .Main-Menu {
+        width: 100vw;
+    }
+    .player-choose {
+        width: 90%;
+    }
+    .option {
+        width: 85%;
+        font-size: 17px;
+    }
 }
